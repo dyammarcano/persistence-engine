@@ -37,11 +37,6 @@ func WithGCInterval(interval time.Duration) OptionFunc {
 	}
 }
 
-type gcConfig struct {
-	enabled  bool
-	interval time.Duration
-}
-
 func WithAutoGC(interval time.Duration) OptionFunc {
 	return func(cfg *Config) {
 		cfg.GCInterval = interval
@@ -54,12 +49,6 @@ func WithDir(dir string) OptionFunc {
 		cfg.BadgerOptions.ValueDir = dir
 	}
 }
-
-//func WithGCDiscardRatio(ratio float64) OptionFunc {
-//	return func(cfg *Config) {
-//		cfg.BadgerOptions.ValueDiscardRatio = ratio
-//	}
-//}
 
 func WithSyncWrites(sync bool) OptionFunc {
 	return func(cfg *Config) {

@@ -12,8 +12,6 @@ type BadgerStore struct {
 	gcTicker *time.Ticker
 }
 
-type txFunc = func(txn *badger3.Txn) error
-
 // NewBadgerStore creates a new BadgerStore instance.
 func NewBadgerStore(path string, opts ...OptionFunc) (*BadgerStore, error) {
 	cfg := &Config{

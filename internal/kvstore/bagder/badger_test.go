@@ -12,7 +12,9 @@ func TestNewBadgerStore(t *testing.T) {
 		t.Errorf("Error creating BadgerStore: %v", err)
 		return
 	}
-	defer store.Close()
+	defer func(store *BadgerStore) {
+		_ = store.Close()
+	}(store)
 
 	key := ksuid.NewString()
 
