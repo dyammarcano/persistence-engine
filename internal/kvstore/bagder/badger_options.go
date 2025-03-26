@@ -1,13 +1,13 @@
 package bagder
 
 import (
-	"github.com/dgraph-io/badger/v3"
+	badger3 "github.com/dgraph-io/badger/v3"
 	"github.com/dgraph-io/badger/v3/options"
 	"time"
 )
 
 type Config struct {
-	BadgerOptions badger.Options
+	BadgerOptions badger3.Options
 	GCInterval    time.Duration
 }
 
@@ -74,7 +74,7 @@ func WithEncryptionKey(key []byte, rotation time.Duration) OptionFunc {
 	}
 }
 
-func WithLogger(logger badger.Logger) OptionFunc {
+func WithLogger(logger badger3.Logger) OptionFunc {
 	return func(cfg *Config) {
 		cfg.BadgerOptions.Logger = logger
 	}
