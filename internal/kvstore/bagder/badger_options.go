@@ -2,7 +2,7 @@ package bagder
 
 import (
 	badger3 "github.com/dgraph-io/badger/v3"
-	"github.com/dgraph-io/badger/v3/options"
+	opts "github.com/dgraph-io/badger/v3/options"
 	"time"
 )
 
@@ -13,7 +13,7 @@ type Config struct {
 
 type OptionFunc func(*Config)
 
-func WithCompression(c options.CompressionType) OptionFunc {
+func WithCompression(c opts.CompressionType) OptionFunc {
 	return func(cfg *Config) {
 		cfg.BadgerOptions.Compression = c
 	}
